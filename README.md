@@ -1,5 +1,7 @@
 # Coinbase Currency Rate Importer
 
+Designed for use in a Magento system that can use Bitcoin as a native currency (not supported by default).
+
 Prices are converted based on the rates given by the Coinbase API at
 https://coinbase.com/api/v1/currencies/exchange_rates
 
