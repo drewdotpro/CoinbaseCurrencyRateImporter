@@ -38,7 +38,7 @@ Installation Notes
 Works best with a modgit install
 
 ```
-modgit clone coibasecurrencyrateimporter https://github.com/drewdotpro/CoinbaseCurrencyRateImporter.git
+modgit clone coinbasecurrencyrate https://github.com/drewdotpro/CoinbaseCurrencyRateImporter.git
 ```
 
 
