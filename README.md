@@ -33,6 +33,13 @@ https://github.com/AOEpeople/Aoe_Scheduler/
 
 Installation Notes
 -------------
-* Works best with a modgit install
-* Be sure to set Coinbase as your currency rate provider and enable the schedule for it in Scheduled Import Settings under System -> Configuration -> Currency Setup
+* Be sure to set Coinbase as your currency rate provider in Scheduled Import Settings under System -> Configuration -> Currency Setup
+
+Works best with a modgit install
+
+```
+modgit clone coibasecurrencyrateimporter https://github.com/drewdotpro/CoinbaseCurrencyRateImporter.git
+```
+
+
 
