@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <DrewDotPro_CoinbaseCurrencyRateImporter>
+            <version>1.0.0</version>
+        </DrewDotPro_CoinbaseCurrencyRateImporter>
+    </modules>
+	<global>
+		<currency>
+            <import>
+                <services>
+                    <drewdotpro_coinbasecurrencyrateimporter>
+                        <name>Coinbase</name>
+                        <model>drewdotpro_coinbasecurrencyrateimporter/coinbase</model>
+                    </drewdotpro_coinbasecurrencyrateimporter>
+                </services>
+            </import>
+        </currency>
+		<models>
+            <drewdotpro_coinbasecurrencyrateimporter>
+                <class>DrewDotPro_CoinbaseCurrencyRateImporter_Model_Currency_Import</class>
+            </drewdotpro_coinbasecurrencyrateimporter>
+        </models>
+	</global>
+    <crontab>
+        <jobs>
+            <coinbase_currency_updates>
+                <schedule>
+                    <cron_expr>0,15,30,45 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>directory/observer::scheduledUpdateCurrencyRates</model>
+                </run>
+            </coinbase_currency_updates>
+        </jobs>
+    </crontab>
+</config>
