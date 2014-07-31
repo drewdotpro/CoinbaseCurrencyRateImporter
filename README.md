@@ -9,7 +9,7 @@ This version includes manual updates for currencies.
 Features
 -------------
 Uses all btc_to_XXX currencies from the API (excluding btc_to_btc) to get currency information.
-Runs every 5 minutes via CRON to ensure currency accuracy.
+Runs every 15 minutes via CRON to ensure currency accuracy.
 
 Compatibility
 -------------
