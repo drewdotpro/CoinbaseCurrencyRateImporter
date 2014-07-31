@@ -29,3 +29,8 @@ Aoe_Scheduler - Because the CRON job may want adjusting and that's not possible 
 
 https://github.com/AOEpeople/Aoe_Scheduler/
 
+Installation Notes
+
+*Works best with a modgit install
+*Be sure to set Coinbase as your currency rate provider and enable the schedule for it in Scheduled Import Settings under System -> Configuration -> Currency Setup
+
