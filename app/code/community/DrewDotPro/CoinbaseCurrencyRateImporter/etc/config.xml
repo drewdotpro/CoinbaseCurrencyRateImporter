@@ -13,6 +13,7 @@
                     <drewdotpro_coinbasecurrencyrateimporter>
                         <name>Coinbase</name>
                         <model>drewdotpro_coinbasecurrencyrateimporter/coinbase</model>
+                        <model>drewdotpro_coinbasecurrencyrateimporter/observer</model>
                     </drewdotpro_coinbasecurrencyrateimporter>
                 </services>
             </import>
@@ -20,6 +21,7 @@
 		<models>
             <drewdotpro_coinbasecurrencyrateimporter>
                 <class>DrewDotPro_CoinbaseCurrencyRateImporter_Model_Currency_Import</class>
+                <class>DrewDotPro_CoinbaseCurrencyRateImporter_Model</class>
             </drewdotpro_coinbasecurrencyrateimporter>
         </models>
 	</global>
