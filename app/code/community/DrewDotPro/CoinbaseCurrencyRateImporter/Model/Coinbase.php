@@ -1,6 +1,6 @@
 <?php
 
-class DrewDotPro_CoinbaseCurrencyRateImporter_Model_Currency_Import_Coinbase extends Mage_Directory_Model_Currency_Import_Abstract
+class DrewDotPro_CoinbaseCurrencyRateImporter_Model_Coinbase extends Mage_Directory_Model_Currency_Import_Abstract
 {
     protected $_url = 'https://coinbase.com/api/v1/currencies/exchange_rates';
     protected $_messages = array();
@@ -8,7 +8,6 @@ class DrewDotPro_CoinbaseCurrencyRateImporter_Model_Currency_Import_Coinbase ext
 
     protected function _convert($currencyFrom, $currencyTo, $retry = 0)
     {
-
         $mageFilename = 'app/Mage.php';
         require_once $mageFilename;
         umask(0);
@@ -35,10 +34,8 @@ class DrewDotPro_CoinbaseCurrencyRateImporter_Model_Currency_Import_Coinbase ext
                     $this->_messages[] = Mage::helper('directory')->__('Cannot parse rate data from %s.', $this->_url);
                     return null;
                 }
-                foreach($parsedData as $rateDescription => $rate)
-                {
-                    if(strpos($rateDescription, 'btc_to_') === 0)
-                    {
+                foreach ($parsedData as $rateDescription => $rate) {
+                    if (strpos($rateDescription, 'btc_to_') === 0) {
                         $currency = strtoupper(substr($rateDescription, strpos($rateDescription, "btc_to_") + 7));
                         $this->_rates[$currency] = floatval($rate);
                     }
@@ -59,7 +56,6 @@ class DrewDotPro_CoinbaseCurrencyRateImporter_Model_Currency_Import_Coinbase ext
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-
 
 
     }

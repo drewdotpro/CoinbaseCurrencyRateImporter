@@ -2,27 +2,31 @@
 
 class DrewDotPro_CoinbaseCurrencyRateImporter_Model_Observer extends Mage_Directory_Model_Observer
 {
+    const IMPORT_SERVICE_NAME = 'drewdotpro_coinbasecurrencyrateimporter';
+
     public function scheduledUpdateCurrencyRates($schedule)
     {
+
         $importWarnings = array();
         if (!Mage::getStoreConfig(self::IMPORT_ENABLE) || !Mage::getStoreConfig(self::CRON_STRING_PATH)) {
             return;
         }
 
         $service = Mage::getStoreConfig(self::IMPORT_SERVICE);
+
+        if ($service !== self::IMPORT_SERVICE_NAME) {
+            return;
+        }
         if (!$service) {
             $importWarnings[] = Mage::helper('directory')->__('FATAL ERROR:') . ' ' . Mage::helper('directory')->__('Invalid Import Service specified.');
         }
-
         try {
             $importModel = Mage::getModel(Mage::getConfig()->getNode('global/currency/import/services/' . $service . '/model')->asArray());
         } catch (Exception $e) {
             $importWarnings[] = Mage::helper('directory')->__('FATAL ERROR:') . ' ' . Mage::throwException(Mage::helper('directory')->__('Unable to initialize the import model.'));
         }
-
         $rates = $importModel->fetchRates();
         $errors = $importModel->getMessages();
-
         if (sizeof($errors) > 0) {
             foreach ($errors as $error) {
                 $importWarnings[] = Mage::helper('directory')->__('WARNING:') . ' ' . $error;
